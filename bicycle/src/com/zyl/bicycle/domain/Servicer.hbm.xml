@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.zyl.bicycle.domain">
+  <class name="Servicer" table="h_servicer">
+     <id name="id" column="id">
+        <generator class="native"></generator>
+     </id>
+     <property name="name" column="name"></property>
+     <property name="address" column="address"></property>
+     <property name="tel" column="tel"></property>
+     <set name="bikes" cascade="delete" inverse="true" lazy="false">
+         <key column="servicer_id"/>
+         <one-to-many class="com.zyl.bicycle.domain.Bike"/>
+     </set>
+  </class>
+</hibernate-mapping>

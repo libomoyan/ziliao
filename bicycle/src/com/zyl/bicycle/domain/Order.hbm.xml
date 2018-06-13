@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.zyl.bicycle.domain">
+  <class name="Order" table="h_order">
+     <id name="id" column="id">
+        <generator class="native"></generator>
+     </id>
+     <property name="servicer_name" column="servicer_name"></property>
+     <property name="time" column="total_time"></property>
+      <property name="ordercheck" column="ordercheck"></property>
+      <property name="client_name" column="client_name"></property>
+      <property name="kehutel" column="kehu_tel"></property>
+      <property name="create_date" column="create_date"></property>
+     <set name="items" cascade="delete" inverse="true" lazy="false">
+         <key column="order_id"/>
+         <one-to-many class="com.zyl.bicycle.domain.Item"/>
+     </set>
+  </class>
+</hibernate-mapping>
